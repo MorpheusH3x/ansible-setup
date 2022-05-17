@@ -1,0 +1,17 @@
+- name: Install git
+  ansible.builtin.include_role:
+    name: git
+
+- name: Setup gh
+  get_url:
+    url:  https://cli.github.com/packages/githubcli-archive-keyring.gpg
+    dest: /usr/share/keyrings/githubcli-archive-keyring.gpg
+  shell: |
+    echo 'deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main' >>  /etc/apt/sources.list.d/github-cli.list
+  apt:
+    update: yes
+  apt:
+  - gh
+
+# - name: Setup SSH private key
+# prompt, utiliser la même que d'hab ou en générer une ...

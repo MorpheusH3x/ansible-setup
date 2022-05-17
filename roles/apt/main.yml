@@ -1,0 +1,14 @@
+---
+
+- name: Install things from apt
+  ansible.builtin.apt:
+    name: 
+    - software-properties-common
+    - tree
+    - binutils
+    - tree
+    - make
+    - which
+    - curl 
+    - wget
+    state: present

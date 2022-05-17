@@ -1,0 +1,15 @@
+---
+
+- name: Install zsh
+  ansible.builtin.apt:
+    name: 
+    - zsh 
+    - git 
+    - curl
+    - wget
+    state: present
+
+- name: Set shell of morpheush3x to zsh
+  ansible.builtin.user:
+    name: morpheush3x
+    shell: /usr/bin/zsh

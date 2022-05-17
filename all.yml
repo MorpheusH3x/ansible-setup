@@ -1,0 +1,12 @@
+---
+- name: Laptop
+  hosts: 127.0.0.1
+  become: true
+
+  roles:
+    - apt
+    - git
+    - zsh
+    - vcsh
+    - python
+    - neovim
