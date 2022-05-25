@@ -8,7 +8,22 @@
     - binutils
     - tree
     - make
-    - which
     - curl 
     - wget
     state: present
+
+- name: NOPASSWD for root group
+  become: yes
+  become_user: root
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '%sudo'
+    line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+    validate: '/usr/sbin/visudo -cf %s'
+
+- name: Add morpheush3x to sudoers
+  user:
+    name: morpheush3x
+    groups: sudo
+    append: yes

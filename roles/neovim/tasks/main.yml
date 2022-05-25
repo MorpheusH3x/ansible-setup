@@ -4,8 +4,7 @@
 
 - name: Install neovim
   ansible.builtin.apt:
-    - name:
+    name:
     - neovim
-    - python-neovim
     - python3-neovim
     state: present

@@ -1,0 +1,6 @@
+
+- name: Install pwntools with pipx
+  community.general.pipx:
+    name: pwntools
+    state: install
+    install_deps: yes

@@ -1,6 +1,7 @@
 ---
 
-- name: Install git
+- name: Install git with apt
   ansible.builtin.apt:
-  - git
-  state: present
+    name:
+    - git
+    state: present
